@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const sources = [
         "meta/loop_vid/video1.mp4",
         "meta/loop_vid/video2.mp4",
-        "meta/loop_vid/video3.mp4"
+        "meta/loop_vid/video3.mp4",
+        "meta/loop_vid/video4.mp4",
+        "meta/loop_vid/video5.mp4"
     ];
 
     let current = 0;
