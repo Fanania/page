@@ -137,16 +137,20 @@ body {
     min-height: 80vh;
     padding: 6rem 2rem; /* am avut 6rem inainte*/
     overflow: hidden;
+    display: flex;
+    align-items: center; /* centreaza vertical  */
 }
 
 /* Textul mare care se plimbă în fundal, sper sa mearga*/
 
 .promo-marquee {
     position: absolute;
-    inset: 0;
-    font-size: 7rem;
+    left: 0;
+    right: 0;
+    top: 35%;
+    font-size: 6rem;
     font-weight: 700;
-    color: #d0d0d0;
+    color: #111;
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
@@ -231,24 +235,28 @@ body {
     background: #111;
 }
 /* Text + buton */
+.promo-text {
+    text-align: center;
+}
 
 .promo-text p {
     font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
     color: #333;
 }
 
 .promo-button {
     display: inline-block;
-    padding: 0.7rem 1.8rem;
+    padding: 0.7rem 2rem;
     border-radius: 999px;
-    background: #111;
-    color: #fff;
+    border: 1px solid #111;
+    background: transparent;
+    color: #111;
     text-decoration: none;
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     font-weight: 500;
     transition:
         background-color 0.25s ease,
@@ -258,10 +266,10 @@ body {
 }
 
 .promo-button:hover {
-    background: #f8d24b; /* accent (gen galben) */
-    color: #111;
+    background: #111; /* accent (gen galben) */
+    color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive: pe ecrane mici, video sus, text jos */
@@ -269,10 +277,11 @@ body {
 @media (max-width: 768px) {
     .promo-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
     .promo-marquee {
         font-size: 3rem;
+        top: 40%;
     }
 }
