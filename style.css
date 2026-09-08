@@ -172,7 +172,7 @@ body {
     }
 }
 
-/* Conținutul propriu-zis (video + text + buton) */
+/* ConTinutul propriu-zis (video + text + buton) */
 
 .promo-content {
     position: relative;
@@ -271,9 +271,78 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+/*END PT ULTIMA PARTE */
+/* SECTIUNE SERVICII (cercul gri cu text + imagine) */
 
+.services-section {
+    padding: 6rem 2rem;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.services-circle {
+    width: min(1100px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.services-content {
+    width: 85%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Text stanga */
+
+.services-text h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.services-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.services-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 1.2rem 0;
+    color: #333;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.services-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Imagine dreapta */
+
+.services-image img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    object-fit: cover;
+}
+/* END FOR THE SERVICII */
 /* Responsive: pe ecrane mici, video sus, text jos */
-
+/* MEDIA PT PROMO */
 @media (max-width: 768px) {
     .promo-content {
         grid-template-columns: 1fr;
@@ -283,5 +352,19 @@ body {
     .promo-marquee {
         font-size: 3rem;
         top: 40%;
+    }
+}
+/* MEDIA PT SERVICII */
+@media (max-width: 900px) {
+    .services-circle {
+        border-radius: 32px;
+        aspect-ratio: auto;
+        padding: 2.5rem 0;
+    }
+
+    .services-content {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
