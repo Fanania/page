@@ -49,7 +49,7 @@ body {
 .hero {
     position: relative;
     min-height: 100vh;
-    background-image: url("fundal-santier.jpg"); /* înlocuiește cu imaginea ta */
+    background-image: url("fundal-santier.jpg"); /*de incarcat fisierul original */
     background-size: cover;
     background-position: center;
     display: flex;
