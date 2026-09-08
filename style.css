@@ -120,3 +120,114 @@ body {
 .hero-button:hover {
     background: #f0f0f0;
 }
+/* SECTIUNE PROMO SUPER PRET */
+
+.promo-section {
+    position: relative;
+    background: #f2f2f2;
+    color: #111;
+    padding: 6rem 2rem;
+    overflow: hidden;
+}
+
+/* Textul mare care se plimbă în fundal */
+
+.promo-marquee {
+    position: absolute;
+    inset: 0;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #d0d0d0;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.promo-marquee-inner {
+    display: inline-block;
+    animation: promo-scroll 25s linear infinite;
+}
+
+/* Animație de scroll (dreapta -> stânga) */
+@keyframes promo-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Conținutul propriu-zis (video + text + buton) */
+
+.promo-content {
+    position: relative;
+    z-index: 1; /* peste textul de fundal */
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+/* Box alb pentru video */
+
+.promo-video-box {
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.promo-video-box video {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Text + buton */
+
+.promo-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.promo-button {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    border-radius: 999px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.promo-button:hover {
+    background: #f8d24b; /* accent (gen galben) */
+    color: #111;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive: pe ecrane mici, video sus, text jos */
+
+@media (max-width: 768px) {
+    .promo-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .promo-marquee {
+        font-size: 3rem;
+    }
+}
