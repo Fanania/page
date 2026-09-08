@@ -276,16 +276,16 @@ body {
 
 .services-section {
     padding: 6rem 2rem;
-    background: #ffffff;
+    background: #ffffff;              /* fundal pagină */
     display: flex;
     justify-content: center;
 }
 
 .services-circle {
     width: min(1100px, 100%);
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background: #e5e5e5;
+    height: 580px;                    /* înălțime fixă -> formă ovală consistentă */
+    border-radius: 50%;               /* cerc/oval */
+    background: #e5e5e5;              /* gri constant ca în screenshot */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -295,12 +295,12 @@ body {
 .services-content {
     width: 85%;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); /* text + imagine */
     gap: 3rem;
     align-items: center;
 }
 
-/* Text stanga */
+/* Text stânga */
 
 .services-text h2 {
     font-size: 1.4rem;
@@ -308,8 +308,8 @@ body {
 }
 
 .services-text h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
 }
 
 .services-text p {
@@ -319,28 +319,36 @@ body {
     color: #333;
 }
 
-.services-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: #333;
-}
-
-.services-list li {
-    margin-bottom: 0.5rem;
-}
-
 /* Imagine dreapta */
 
 .services-image img {
     width: 100%;
-    display: block;
-    border-radius: 12px;
-    object-fit: cover;
+    height: 100%;
+    object-fit: cover;                /* umple zona dreaptă frumos */
+    border-radius: 20px;              /* colțuri rotunjite, nu cerc */
 }
-/* END FOR THE SERVICII */
+
+/* Responsive – pe ecrane mici transformăm ovalul în bloc */
+
+@media (max-width: 900px) {
+    .services-circle {
+        width: 100%;
+        height: auto;
+        border-radius: 32px;
+        padding: 2.5rem 0;
+    }
+
+    .services-content {
+        width: 90%;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .services-image img {
+        height: auto;
+    }
+}
+
 /* Responsive: pe ecrane mici, video sus, text jos */
 /* MEDIA PT PROMO */
 @media (max-width: 768px) {
@@ -352,19 +360,5 @@ body {
     .promo-marquee {
         font-size: 3rem;
         top: 40%;
-    }
-}
-/* MEDIA PT SERVICII */
-@media (max-width: 900px) {
-    .services-circle {
-        border-radius: 32px;
-        aspect-ratio: auto;
-        padding: 2.5rem 0;
-    }
-
-    .services-content {
-        width: 90%;
-        grid-template-columns: 1fr;
-        gap: 2rem;
     }
 }
