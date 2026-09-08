@@ -314,6 +314,65 @@ body {
     color: #333;
 }
 
+.services-text {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: 2.5rem;
+    row-gap: 2rem;
+}
+/* STÂNGA */
+
+.services-left-block h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #111;
+}
+
+.services-tagline {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+}
+
+.services-left-block h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: #111;
+}
+
+/* CENTRU – paragraf frumos, centrat pe coloană */
+
+.services-center-block {
+    grid-column: 1 / 3;           /* ocupă ambele coloane */
+    text-align: center;
+}
+
+.services-center-block p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* DREAPTA – listă titlu + subtext pe două rânduri */
+
+.services-right-block {
+    /* coloana a doua din gridul principal */
+}
+
+.service-item + .service-item {
+    margin-top: 0.8rem;
+}
+
+.service-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111;
+}
+
+.service-desc {
+    font-size: 0.85rem;
+    color: #555;
+
 .services-list {
     margin-top: 0.8rem;
 }
