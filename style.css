@@ -1,0 +1,105 @@
+/* Reset simplu */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #fff;
+}
+
+/* HEADER + MENIU */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    background: rgba(0, 0, 0, 0.35); /* transparent peste imagine */
+    backdrop-filter: blur(4px);
+}
+
+.logo img {
+    height: 40px; /* ajustează în funcție de logo */
+}
+
+/* Meniu */
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.main-nav a:hover {
+    text-decoration: underline;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("fundal-santier.jpg"); /* înlocuiește cu imaginea ta */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+/* Overlay semi-transparent peste imagine pentru lizibilitate */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+/* Conținut text + buton în centru */
+.hero-content {
+    position: relative;
+    max-width: 720px;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Buton */
+
+.hero-button {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    background: #ffffff;
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+}
+
+.hero-button:hover {
+    background: #f0f0f0;
+}
