@@ -178,13 +178,37 @@ body {
     padding: 1.5rem;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
-
-.promo-video-box video {
-    width: 100%;
-    display: block;
+/* Slider container */
+.promo-video-slider {
+    position: relative;
+    overflow: hidden;
     border-radius: 4px;
 }
+/* Toate videourile, dar doar unul vizibil */
+.promo-video-slider video {
+    width: 100%;
+    display: none;
+}
+/* Buline navigație */
+.promo-video-dots {
+    margin-top: 0.75rem;
+    text-align: center;
+}
 
+.promo-video-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    margin: 0 4px;
+    background: #ccc;
+    cursor: pointer;
+    padding: 0;
+}
+
+.promo-video-dots .dot.active {
+    background: #111;
+}
 /* Text + buton */
 
 .promo-text p {
