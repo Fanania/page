@@ -498,21 +498,21 @@ body {
 /* FOOTER CONTACT */
 
 .site-footer {
-    padding: 4rem 2rem 3rem;
-    background: #f2f2f2;   /* acelasi gri */
-    color: #111;
-    border-top: 1px solid #ddd;
+    padding: 4rem 2rem 2rem;
+    background: rgba(0, 0, 0, 0.35);   /* similar cu header-ul */
+    color: #fff;
+  /*  border-top: 1px solid #ddd; */
     margin-top: 3rem;
 }
 
 .contact-content {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .contact-content h2 {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-bottom: 2.5rem;
 }
 
@@ -520,41 +520,59 @@ body {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 3.5rem;
+    text-align: flex-start;
+}
+
+/* STANGA – text aliniat la stanga, paragrafe mai "deschise" */
+.contact-left {
     text-align: left;
 }
 
 .contact-left p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #333;
+    color: #f0f0f0;
 }
 
 .contact-phone a {
     font-size: 1rem;
     font-weight: 600;
-    color: #111;
+    color: #fff;
     text-decoration: none;
 }
 
 .contact-phone a:hover {
     text-decoration: underline;
 }
+/* DREAPTA – bloc compact de date, tot aliniat la stanga */
 
+.contact-right {
+    text-align: left;
+}
 .contact-right p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #333;
+    color: #f0f0f0;
 }
 
 .contact-right a {
-    color: #111;
+    color: #fff;
     text-decoration: none;
 }
 
 .contact-right a:hover {
     text-decoration: underline;
+}
+
+/* copyright jos, centrat */
+
+.footer-bottom {
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #dddddd;
 }
 
 /* responsive: pe mobil, coloanele una sub alta */
