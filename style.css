@@ -422,3 +422,144 @@ body {
         top: 40%;
     }
 }
+
+/* SECTIUNE EXPERIENTA ELVETIA */
+
+.experience-section {
+    padding: 6rem 2rem;
+    background: #f2f2f2;        /* la fel ca .promo-section si .services-section */
+    color: #111;
+    overflow: hidden;
+}
+
+/* banda text animata sus */
+
+.experience-marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.experience-marquee-inner {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #111;
+    animation: experience-scroll 25s linear infinite;
+}
+
+@keyframes experience-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* cele 4 fotografii dedesubt */
+
+.experience-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.experience-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+/* responsive: 2 coloane pe tableta, 1 pe mobil */
+
+@media (max-width: 900px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-item img {
+        height: 200px;
+    }
+}
+
+/* SECTIUNE CONTACT */
+
+.contact-section {
+    padding: 6rem 2rem;
+    background: #f2f2f2;        /* acelasi gri de fundal */
+    color: #111;
+}
+
+.contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
+}
+
+/* doua coloane: stanga / dreapta */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    text-align: left;
+}
+
+.contact-left p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.contact-phone a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111;
+    text-decoration: none;
+}
+
+.contact-phone a:hover {
+    text-decoration: underline;
+}
+
+.contact-right p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.contact-right a {
+    color: #111;
+    text-decoration: none;
+}
+
+.contact-right a:hover {
+    text-decoration: underline;
+}
+
+/* responsive: pe mobil, coloanele una sub alta */
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
