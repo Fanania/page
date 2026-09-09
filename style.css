@@ -310,8 +310,8 @@ body {
 .services-text {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 2.5rem;
-    row-gap: 2rem;
+    column-gap: 3rem;
+    row-gap: 2.5rem;
 }
 /* STANGA */
 
@@ -506,10 +506,10 @@ body {
 .contact-content {
     max-width: 900px;
     margin: 0 auto;
-    text-align: center;
 }
 
 .contact-content h2 {
+    text-align: center;
     font-size: 1.6rem;
     margin-bottom: 2.5rem;
 }
