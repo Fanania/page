@@ -1,27 +1,17 @@
 const galleryGrid = document.querySelector("#galleryGrid");
+const viewButtons = document.querySelectorAll(".gallery-view-button");
 
 const repositoryOwner = "fanania";
 const repositoryName = "page";
 const repositoryBranch = "main";
 
-const imageExtensions = [
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".webp",
-    ".gif"
-];
-
-const videoExtensions = [
-    ".mp4",
-    ".webm",
-    ".mov",
-    ".m4v"
-];
+const imageExtensions = [".jpg", ".jpeg", ".png", ".webp", ".gif"];
+const videoExtensions = [".mp4", ".webm", ".mov", ".m4v"];
 
 const excludedFolders = [
-  //  "/loop/",
-    "/mini_char/"
+    "/loop/",
+    "/mini_char/",
+    "/logo/"
 ];
 
 function getFileExtension(path) {
@@ -29,28 +19,39 @@ function getFileExtension(path) {
 }
 
 function isAllowedMedia(path) {
-    const lowerPath = path.toLowerCase();
-    const extension = getFileExtension(lowerPath);
-
-    const isInsideMeta = lowerPath.startsWith("meta/");
-    const isExcluded = excludedFolders.some(folder =>
-        lowerPath.includes(folder)
-    );
-
+    const filePath = path.toLowerCase();
+    const extension = getFileExtension(filePath);
     const isImage = imageExtensions.includes(extension);
     const isVideo = videoExtensions.includes(extension);
 
-    return isInsideMeta && !isExcluded && (isImage || isVideo);
+    return (
+        filePath.startsWith("meta/") &&
+        !excludedFolders.some(folder => filePath.includes(folder)) &&
+        (isImage || isVideo)
+    );
 }
 
 function getMediaTitle(path) {
-    const fileName = path.split("/").pop();
-    const nameWithoutExtension = fileName.replace(/\.[^/.]+$/, "");
-
-    return nameWithoutExtension
+    return path
+        .split("/")
+        .pop()
+        .replace(/\.[^/.]+$/, "")
         .replace(/[-_]+/g, " ")
         .replace(/\s+/g, " ")
         .trim();
+}
+
+function getFileUrl(path) {
+    return `https://fanania.github.io/page/${path
+        .split("/")
+        .map(encodeURIComponent)
+        .join("/")}`;
+}
+
+function createCaption(path) {
+    const caption = document.createElement("figcaption");
+    caption.textContent = getMediaTitle(path);
+    return caption;
 }
 
 function createImageItem(url, path) {
@@ -62,11 +63,7 @@ function createImageItem(url, path) {
     image.alt = getMediaTitle(path);
     image.loading = "lazy";
 
-    const caption = document.createElement("figcaption");
-    caption.textContent = getMediaTitle(path);
-
-    item.append(image, caption);
-
+    item.append(image, createCaption(path));
     return item;
 }
 
@@ -82,34 +79,29 @@ function createVideoItem(url, path) {
     video.preload = "metadata";
     video.setAttribute("aria-label", getMediaTitle(path));
 
-    const caption = document.createElement("figcaption");
-    caption.textContent = getMediaTitle(path);
-
-    item.append(video, caption);
-
+    item.append(video, createCaption(path));
     return item;
 }
 
-const galleryGrid = document.querySelector("#galleryGrid");
-const viewButtons = document.querySelectorAll(".gallery-view-button");
+function setupViewButtons() {
+    viewButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const oneColumn = button.dataset.view === "one";
 
-viewButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const oneColumn = button.dataset.view === "one";
+            galleryGrid.classList.toggle(
+                "gallery-grid--one-column",
+                oneColumn
+            );
 
-        galleryGrid.classList.toggle(
-            "gallery-grid--one-column",
-            oneColumn
-        );
+            viewButtons.forEach(item => {
+                const active = item === button;
 
-        viewButtons.forEach(item => {
-            const active = item === button;
-
-            item.classList.toggle("is-active", active);
-            item.setAttribute("aria-pressed", String(active));
+                item.classList.toggle("is-active", active);
+                item.setAttribute("aria-pressed", String(active));
+            });
         });
     });
-});
+}
 
 async function loadGallery() {
     const apiUrl =
@@ -128,11 +120,12 @@ async function loadGallery() {
         const mediaFiles = data.tree
             .filter(file => file.type === "blob")
             .map(file => file.path)
-            .filter(isAllowedMedia);
+            .filter(isAllowedMedia)
+            .sort((a, b) => a.localeCompare(b));
 
         galleryGrid.innerHTML = "";
 
-        if (mediaFiles.length === 0) {
+        if (!mediaFiles.length) {
             galleryGrid.innerHTML = `
                 <p class="gallery-status">
                     Nu au fost găsite fotografii sau videoclipuri.
@@ -142,14 +135,12 @@ async function loadGallery() {
         }
 
         mediaFiles.forEach(path => {
-            const fileUrl =
-                `https://fanania.github.io/page/${path}`;
-
+            const url = getFileUrl(path);
             const extension = getFileExtension(path);
 
             const item = imageExtensions.includes(extension)
-                ? createImageItem(fileUrl, path)
-                : createVideoItem(fileUrl, path);
+                ? createImageItem(url, path)
+                : createVideoItem(url, path);
 
             galleryGrid.appendChild(item);
         });
@@ -164,4 +155,5 @@ async function loadGallery() {
     }
 }
 
+setupViewButtons();
 loadGallery();
