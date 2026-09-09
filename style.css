@@ -44,7 +44,7 @@ footer {
     scroll-margin-top: var(--header-height);
 }
 
-/* HEADER */
+/* Header */
 
 .site-header {
     position: fixed;
@@ -122,7 +122,7 @@ footer {
     transform: scaleX(1);
 }
 
-/* HERO */
+/* Hero */
 
 .hero {
     position: relative;
@@ -167,7 +167,7 @@ footer {
     line-height: 1.7;
 }
 
-/* BUTOANE */
+/* Butoane */
 
 .hero-button,
 .promo-button {
@@ -225,7 +225,7 @@ footer {
     }
 }
 
-/* PROMO + VIDEO VERTICAL */
+/* Promo */
 
 .promo-section {
     position: relative;
@@ -313,7 +313,7 @@ footer {
     line-height: 1.7;
 }
 
-/* SERVICII */
+/* Servicii */
 
 .services-section {
     padding: var(--space) 1.5rem;
@@ -345,6 +345,7 @@ footer {
 .section-label {
     display: block;
     margin-bottom: .9rem;
+
     color: #8a6d00;
     font-size: .72rem;
     font-weight: 800;
@@ -381,6 +382,10 @@ footer {
     line-height: 1.8;
 }
 
+.services-center-block p + p {
+    margin-top: 1rem;
+}
+
 .services-right-block {
     padding-left: 1.5rem;
     border-left: 1px solid var(--border);
@@ -408,7 +413,7 @@ footer {
     line-height: 1.55;
 }
 
-/* IMAGINE + MASCOTĂ */
+/* Imagine + mascotă */
 
 .services-visual {
     position: relative;
@@ -427,8 +432,10 @@ footer {
 .services-image img {
     width: min(100%, 420px);
     aspect-ratio: 1;
+
     border: 10px solid var(--white);
     border-radius: 50%;
+
     object-fit: cover;
     box-shadow: 0 20px 45px rgba(0, 0, 0, .12);
 }
@@ -444,6 +451,7 @@ footer {
 .mascot img {
     width: 100%;
     height: auto;
+    pointer-events: none;
     object-fit: contain;
     filter: drop-shadow(0 8px 8px rgba(0, 0, 0, .16));
     transition: transform .3s ease;
@@ -453,7 +461,7 @@ footer {
     transform: translateY(-5px) rotate(2deg);
 }
 
-/* EXPERIENȚĂ */
+/* Experiență */
 
 .experience-section {
     overflow: hidden;
@@ -471,11 +479,13 @@ footer {
 .experience-marquee-inner {
     display: inline-block;
     min-width: max-content;
+
     color: rgba(0, 0, 0, .72);
     font-size: .95rem;
     font-weight: 600;
     letter-spacing: .15em;
     text-transform: uppercase;
+
     animation: experience-scroll 30s linear infinite;
 }
 
@@ -517,7 +527,7 @@ footer {
     transform: scale(1.05);
 }
 
-/* FOOTER */
+/* Footer */
 
 .site-footer {
     position: relative;
@@ -542,6 +552,7 @@ footer {
 .footer-title {
     max-width: 650px;
     margin: 0 auto 3.5rem;
+
     color: var(--white);
     font-size: clamp(1.5rem, 3vw, 2.2rem);
     font-weight: 600;
@@ -646,7 +657,7 @@ footer {
     text-align: center;
 }
 
-/* GALERIE */
+/* Galerie */
 
 .gallery-page {
     min-height: 100vh;
@@ -714,6 +725,10 @@ footer {
     margin: auto;
 }
 
+.gallery-grid.gallery-grid--one-column {
+    grid-template-columns: 1fr;
+}
+
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -771,7 +786,7 @@ footer {
     object-fit: contain;
 }
 
-/* TABLETĂ */
+/* Tabletă */
 
 @media (max-width: 900px) {
     .services-text {
@@ -794,7 +809,10 @@ footer {
         border-left: 0;
     }
 
-    .experience-grid,
+    .experience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -810,7 +828,7 @@ footer {
     }
 }
 
-/* MOBIL */
+/* Mobil */
 
 @media (max-width: 768px) {
     :root {
@@ -920,8 +938,7 @@ footer {
         margin-right: 3%;
     }
 
-    .experience-item img,
-    .gallery-item img {
+    .experience-item img {
         aspect-ratio: 16 / 10;
     }
 
@@ -933,17 +950,10 @@ footer {
         height: min(78svh, 560px);
     }
 
-    .gallery-video-item video {
-        max-height: 75svh;
-    }
-}
+    /* Galerie: implicit două coloane pentru imagini */
 
-/* GALERIE: DEFAULT PE TELEFON
-   Imaginile = 2 coloane
-   Videoclipurile = 1 rând */
-
-@media (max-width: 600px) {
-    .gallery-grid {
+    .gallery-grid,
+    .gallery-grid.gallery-grid--one-column {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: .6rem;
     }
@@ -955,6 +965,8 @@ footer {
     .gallery-grid .gallery-item figcaption {
         display: none;
     }
+
+    /* Videoclipurile rămân pe un singur rând */
 
     .gallery-grid .gallery-video-item {
         grid-column: 1 / -1;
@@ -989,11 +1001,10 @@ footer {
     .gallery-grid.gallery-grid--one-column .gallery-video-item {
         width: 100%;
         max-width: 360px;
-        justify-self: center;
     }
 }
 
-/* FOCUS + ACCESIBILITATE */
+/* Accesibilitate */
 
 :focus-visible {
     outline: 3px solid var(--accent);
