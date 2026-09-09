@@ -27,10 +27,11 @@ body {
 }
 
 .logo img {
-    height: 40px; /* ajustează în funcție de logo */
+    height: 40px; /* ajusteaza in functie de logo */
 }
 
 /* Meniu */
+
 .main-nav a {
     color: #fff;
     text-decoration: none;
@@ -49,7 +50,7 @@ body {
 .hero {
     position: relative;
     min-height: 100vh;
-    background-image: url("meta/PHOTO_perete_cu_bare.jpg"); /*de incarcat fisierul original */
+    background-image: url("meta/PHOTO_perete_cu_bare.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -59,13 +60,15 @@ body {
 }
 
 /* Overlay semi-transparent peste imagine pentru lizibilitate */
+
 .hero-overlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
 }
 
-/* Conținut text + buton în centru */
+/* Continut text + buton in centru */
+
 .hero-content {
     position: relative;
     max-width: 720px;
@@ -98,8 +101,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 0.85rem;
-    /* pulse definit mai jos */
-    animation: pulse 2.2s ease-in-out infinite; /* efect pentru buton in-out */
+    animation: pulse 2.2s ease-in-out infinite; /* efect de puls */
     transition:
         background-color 0.25s ease,
         color 0.25s ease,
@@ -123,11 +125,12 @@ body {
 }
 
 .hero-button:hover {
-  background: #f8d24b;
+    background: #f8d24b;
     color: #222;
     transform: translateY(-2px) scale(1.03);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
+
 /* SECTIUNE PROMO SUPER PRET */
 
 .promo-section {
@@ -135,26 +138,25 @@ body {
     background: #f2f2f2;
     color: #111;
     min-height: 80vh;
-    padding: 6rem 2rem; /* am avut 6rem inainte*/
+    padding: 6rem 2rem;
     overflow: hidden;
     display: flex;
-    align-items: center; /* centreaza vertical  */
+    align-items: center; /* centreaza vertical */
 }
 
-/* Textul mare care se plimbă în fundal, sper sa mearga*/
+/* Textul mare care se plimba in fundal */
 
 .promo-marquee {
     position: absolute;
     left: 0;
     right: 0;
-    top: 35%;
+    top: 20%;
     font-size: 6rem;
     font-weight: 700;
     color: #111;
     white-space: nowrap;
     pointer-events: none;
     z-index: 0;
-    top: 20%;          /* mută banda puțin mai sus */
 }
 
 .promo-marquee-inner {
@@ -162,7 +164,8 @@ body {
     animation: promo-scroll 25s linear infinite;
 }
 
-/* Animație de scroll (dreapta -> stânga) */
+/* Animatie scroll (dreapta -> stanga) */
+
 @keyframes promo-scroll {
     from {
         transform: translateX(0);
@@ -172,15 +175,15 @@ body {
     }
 }
 
-/* ConTinutul propriu-zis (video + text + buton) */
+/* Continut (video + text + buton) */
 
 .promo-content {
     position: relative;
     z-index: 1; /* peste textul de fundal */
-    max-width: 1000px;  /* era 1100px */
+    max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); /* minmax(0, 1.2fr) minmax(0, 1fr)*/
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: 2.5rem;
     align-items: center;
 }
@@ -189,7 +192,7 @@ body {
 
 .promo-video-box {
     background: #ffffff;
-    padding: 2.5rem; /*la inceput era 1.5rem*/
+    padding: 2.5rem;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
 
@@ -198,43 +201,9 @@ body {
     display: block;
     border-radius: 4px;
 }
-/* Slider container */
-.promo-video-slider {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-}
 
-/* Toate videourile, dar doar unul vizibil */
-.promo-video-slider video {
-    width: 100%;
-    display: none;
-}
-
-.promo-video-slider video.active {
-    display: block;
-}
-/* Buline navigație */
-.promo-video-dots {
-    margin-top: 0.75rem;
-    text-align: center;
-}
-
-.promo-video-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: none;
-    margin: 0 4px;
-    background: #ccc;
-    cursor: pointer;
-    padding: 0;
-}
-
-.promo-video-dots .dot.active {
-    background: #111;
-}
 /* Text + buton */
+
 .promo-text {
     text-align: center;
 }
@@ -266,18 +235,17 @@ body {
 }
 
 .promo-button:hover {
-    background: #111; /* accent (gen galben) */
+    background: #111;
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-/*END PT ULTIMA PARTE */
-/* SECTIUNE SERVICII (cercul gri cu text + imagine) */
-/* SECTIUNE SERVICII – fundal gri ca promo, text stânga/dreapta, imagine rotundă jos */
+
+/* SECTIUNE SERVICII – fundal gri ca promo, text stanga/centru/dreapta, imagine rotunda jos */
 
 .services-section {
     padding: 6rem 2rem;
-    background: #f2f2f2;              /* la fel ca .promo-section */
+    background: #f2f2f2;
 }
 
 .services-content {
@@ -285,27 +253,7 @@ body {
     margin: 0 auto;
 }
 
-
-/*  .services-text ca bloc stanga (h2/h3/p/ul) */
-
-.services-text h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #111;
-}
-
-.services-text h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.4rem;
-    color: #111;
-}
-
-.services-text p,
-.services-list {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #333;
-}
+/* text: 3 blocuri */
 
 .services-text {
     display: grid;
@@ -313,6 +261,7 @@ body {
     column-gap: 3rem;
     row-gap: 2.5rem;
 }
+
 /* STANGA */
 
 .services-left-block {
@@ -337,10 +286,10 @@ body {
     color: #111;
 }
 
-/* CENTRU – paragraf frumos, centrat pe coloană */
+/* CENTRU – paragraf pe rand separat */
 
 .services-center-block {
-    grid-column: 1 / 3;           /* ocupa ambele coloane */
+    grid-column: 1 / 3;
     text-align: center;
 }
 
@@ -350,12 +299,11 @@ body {
     color: #333;
 }
 
-/* DREAPTA – lista titlu + subtext pe două rânduri */
+/* DREAPTA – lista titlu + subtext pe doua randuri */
 
 .services-right-block {
-    grid-column: 2 / 3;        /* coloana dreapta */
+    grid-column: 2 / 3;
     text-align: left;
-    /* coloana a doua din gridul principal */
 }
 
 .service-item + .service-item {
@@ -373,32 +321,27 @@ body {
     color: #555;
 }
 
-.services-list {
-    margin-top: 0.8rem;
-}
-
-/* imaginea ta actualA (dreapta) */
+/* imagine rotunda */
 
 .services-image {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2.5rem;
 }
-
-/* IMAGINE ROTUNDA */
 
 .services-image img {
     width: 320px;
     height: 320px;
-    border-radius: 50%;          /* DOAR imaginea e cerc */
+    border-radius: 50%;
     object-fit: cover;
     display: block;
 }
 
-/* responsive */
+/* responsive servicii */
 
 @media (max-width: 900px) {
-    .services-text-and-image {
+    .services-text {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
@@ -409,25 +352,11 @@ body {
     }
 }
 
-/* Responsive: pe ecrane mici, video sus, text jos */
-/* MEDIA PT PROMO */
-@media (max-width: 768px) {
-    .promo-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-    }
-
-    .promo-marquee {
-        font-size: 3rem;
-        top: 40%;
-    }
-}
-
 /* SECTIUNE EXPERIENTA ELVETIA */
 
 .experience-section {
     padding: 6rem 2rem;
-    background: #f2f2f2;        /* la fel ca .promo-section si .services-section */
+    background: #f2f2f2;
     color: #111;
     overflow: hidden;
 }
@@ -477,7 +406,7 @@ body {
     border-radius: 12px;
 }
 
-/* responsive: 2 coloane pe tableta, 1 pe mobil */
+/* responsive experienta */
 
 @media (max-width: 900px) {
     .experience-grid {
@@ -496,13 +425,12 @@ body {
 }
 
 /* FOOTER CONTACT */
-/* FOOTER CONTACT */
 
 .site-footer {
     padding: 3rem 2rem 2rem;
     background: rgba(0, 0, 0, 0.35);   /* similar cu header */
     color: #fff;
-    margin-top: 0;                      /* NU mai adaugam spatiu alb sus */
+    margin-top: 0;
 }
 
 .footer-inner {
@@ -510,7 +438,7 @@ body {
     margin: 0 auto;
 }
 
-/* LOGO + TITLU SUS */
+/* logo + titlu sus */
 
 .footer-top {
     display: flex;
@@ -520,17 +448,17 @@ body {
 }
 
 .footer-logo img {
-    height: 40px;                       /* logo mic, ca in header */
+    height: 40px;
     display: block;
 }
 
 .footer-top h2 {
-    font-size: 1.1rem;                  /* titlu mai mic */
+    font-size: 1.1rem;
     margin: 0;
     text-align: right;
 }
 
-/* DOUA COLOANE JOS, ALINIATE LA STANGA */
+/* doua coloane jos */
 
 .contact-grid {
     display: grid;
@@ -542,7 +470,7 @@ body {
 
 .contact-left p,
 .contact-right p {
-    font-size: 0.85rem;                 /* text mai mic */
+    font-size: 0.85rem;
     line-height: 1.6;
     color: #f0f0f0;
 }
@@ -566,7 +494,7 @@ body {
     text-decoration: none;
 }
 
-/* COPYRIGHT JOS */
+/* copyright jos */
 
 .footer-bottom {
     margin-top: 2rem;
@@ -575,7 +503,7 @@ body {
     color: #dddddd;
 }
 
-/* RESPONSIVE */
+/* responsive footer */
 
 @media (max-width: 768px) {
     .footer-top {
@@ -594,3 +522,16 @@ body {
     }
 }
 
+/* MEDIA pentru PROMO pe mobil */
+
+@media (max-width: 768px) {
+    .promo-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .promo-marquee {
+        font-size: 3rem;
+        top: 40%;
+    }
+}
