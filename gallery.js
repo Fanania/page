@@ -90,6 +90,27 @@ function createVideoItem(url, path) {
     return item;
 }
 
+const galleryGrid = document.querySelector("#galleryGrid");
+const viewButtons = document.querySelectorAll(".gallery-view-button");
+
+viewButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const oneColumn = button.dataset.view === "one";
+
+        galleryGrid.classList.toggle(
+            "gallery-grid--one-column",
+            oneColumn
+        );
+
+        viewButtons.forEach(item => {
+            const active = item === button;
+
+            item.classList.toggle("is-active", active);
+            item.setAttribute("aria-pressed", String(active));
+        });
+    });
+});
+
 async function loadGallery() {
     const apiUrl =
         `https://api.github.com/repos/${repositoryOwner}/${repositoryName}` +
