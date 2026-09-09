@@ -2,194 +2,339 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <title>CC Pro Bau - Construcții</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CC Pro Bau - Construcții și finisaje interioare</title>
+
+    <meta
+        name="description"
+        content="CC Pro Bau oferă servicii de construcții, finisaje interioare și renovări în Elveția și România."
+    >
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <!-- HEADER + MENIU -->
     <header class="site-header">
         <div class="logo">
-            <img src="meta/logo/logo_ccprobau.png" alt="CC Pro Bau">
+            <a href="#acasa" aria-label="CC Pro Bau - Acasă">
+                <img
+                    src="meta/logo/logo_ccprobau.png"
+                    alt="Logo CC Pro Bau"
+                >
+            </a>
         </div>
-        <nav class="main-nav">
-            <a href="#acasa">Acasa</a>
+
+        <nav class="main-nav" aria-label="Navigație principală">
+            <a href="#acasa">Acasă</a>
             <a href="#despre">Despre</a>
             <a href="#contact">Contact</a>
             <a href="galerie.html">Galerie</a>
         </nav>
     </header>
 
-    <!-- SECTIUNE HERO -->
-    <section id="acasa" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Design de Durata. Calitate pe Termen Lung.</h1>
-            <p>
-                Cream spatii care rezista prin design clar, executie cu atentie si grija pentru fiecare detaliu.
-                De la concept la santier, oferim solutii complete pentru proiecte rezidentiale si industriale.
-            </p>
-            <a href="#contact" class="hero-button">Afla Mai Mult</a>
-        </div>
-    </section>
 
-    <!-- SECTIUNE SUPER PRET + VIDEO -->
-    <section class="promo-section">
-        <!-- Background text animat -->
-        <div class="promo-marquee">
-            <div class="promo-marquee-inner">
-                SUPER PRET SUPER PRET SUPER PRET SUPER PRET SUPER PRET SUPER PRET SUPER PRET SUPER PRET SUPER PRET SUPER PRET
-            </div>
-        </div>
+    <main>
 
-        <!-- Continut principal -->
-        <div class="promo-content">
-            <!-- Box alb cu video -->
-            <div class="promo-video-box">
-                <video id="promoPlaylist" autoplay muted playsinline></video>
-            </div>
+        <!-- SECTIUNE HERO -->
+        <section id="acasa" class="hero">
+            <div class="hero-overlay"></div>
 
-            <!-- Text + buton -->
-            <div class="promo-text">
+            <div class="hero-content">
+                <h1>
+                    Design de durată. Calitate pe termen lung.
+                </h1>
+
                 <p>
-                    Ai un proiect in minte? Contacteaza-ne pentru o discutie. Analizam cerintele, iti prezentam
-                    estimari transparente si un plan clar de executie, apoi transformam ideile in realitate.
+                    Creăm spații care rezistă prin design clar, execuție atentă
+                    și grijă pentru fiecare detaliu. De la concept la șantier,
+                    oferim soluții complete pentru proiecte rezidențiale și industriale.
                 </p>
-                <a href="#contact" class="promo-button">Contacteaza-ne</a>
+
+                <a href="#contact" class="hero-button">
+                    Află mai mult
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECTIUNE DESPRE / FINISAJE INTERIOARE -->
-    <section id="despre" class="services-section">
-        <div class="services-content">
-            <!-- TEXT -->
-            <div class="services-text">
-                <!-- STANGA: titluri + text artistic -->
-                <div class="services-left-block">
-                    <h2>Finisaje interioare</h2>
-                    <p class="services-tagline">
-                        Texturi, culori si detalii care transforma zidurile in spatii de locuit.
-                    </p>
 
-                    <h3>Tencuieli si efecte decorative</h3>
-                    <h3>Montaj gresie &amp; faianta</h3>
-                    <h3>Renovari interioare</h3>
+        <!-- SECTIUNE PROMO + VIDEO -->
+        <section class="promo-section">
+            <div class="promo-marquee" aria-hidden="true">
+                <div class="promo-marquee-inner">
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                    SUPER PREȚ
+                </div>
+            </div>
+
+            <div class="promo-content">
+
+                <!-- VIDEO CONTROLAT DE script.js -->
+                <div class="promo-video-box">
+                    <video
+                        id="promoPlaylist"
+                        autoplay
+                        muted
+                        playsinline
+                        preload="metadata"
+                        aria-label="Prezentare video CC Pro Bau"
+                    >
+                        Browserul tău nu suportă redarea videoclipurilor.
+                    </video>
                 </div>
 
-                <!-- CENTRU: paragraf centrat -->
-                <div class="services-center-block">
+                <div class="promo-text">
                     <p>
-                        Indiferent daca este vorba despre renovarea unui apartament, casa sau spatiu comercial,
-                        punem accent pe detalii si finisaje de calitate. De la pereti si pardoseli, pana la
-                        elemente decorative, lucram cu materiale moderne si solutii adaptate nevoilor fiecarui proiect.
+                        Ai un proiect în minte? Contactează-ne pentru o discuție.
+                        Analizăm cerințele, îți prezentăm estimări transparente
+                        și un plan clar de execuție, apoi transformăm ideile în realitate.
                     </p>
+
+                    <a href="#contact" class="promo-button">
+                        Contactează-ne
+                    </a>
                 </div>
 
-                <!-- DREAPTA: titlu + subtext pe randul urmator -->
-                <div class="services-right-block">
-                    <div class="service-item">
-                        <div class="service-title">Finisaje interioare</div>
-                        <div class="service-desc">
-                            Pereti finisati, pregatiti pentru vopsire sau elemente decorative.
-                        </div>
+            </div>
+        </section>
+
+
+        <!-- SECTIUNE DESPRE / SERVICII -->
+        <section id="despre" class="services-section">
+            <div class="services-content">
+
+                <div class="services-text">
+
+                    <!-- COLOANA STÂNGA -->
+                    <div class="services-left-block">
+                        <span class="section-label">
+                            Serviciile noastre
+                        </span>
+
+                        <h2>
+                            Finisaje interioare
+                        </h2>
+
+                        <p class="services-tagline">
+                            Texturi, culori și detalii care transformă
+                            zidurile în spații de locuit.
+                        </p>
+
+                        <h3>
+                            Tencuieli și efecte decorative
+                        </h3>
+
+                        <h3>
+                            Montaj gresie &amp; faianță
+                        </h3>
+
+                        <h3>
+                            Renovări interioare
+                        </h3>
                     </div>
 
-                    <div class="service-item">
-                        <div class="service-title">Montaj gresie &amp; faianta</div>
-                        <div class="service-desc">
-                            In bai, bucatarii, holuri si alte spatii de trafic.
-                        </div>
+
+                    <!-- COLOANA CENTRALĂ -->
+                    <div class="services-center-block">
+                        <p>
+                            Indiferent dacă este vorba despre renovarea unui apartament,
+                            a unei case sau a unui spațiu comercial, punem accent pe detalii
+                            și finisaje de calitate.
+
+                            De la pereți și pardoseli până la elemente decorative,
+                            lucrăm cu materiale moderne și soluții adaptate
+                            nevoilor fiecărui proiect.
+                        </p>
                     </div>
 
-                    <div class="service-item">
-                        <div class="service-title">Tencuieli decorative</div>
-                        <div class="service-desc">
-                            Suprafete cu texturi speciale, pentru accente vizuale.
+
+                    <!-- COLOANA DREAPTA -->
+                    <div class="services-right-block">
+
+                        <div class="service-item">
+                            <div class="service-title">
+                                Finisaje interioare
+                            </div>
+
+                            <div class="service-desc">
+                                Pereți finisați, pregătiți pentru vopsire
+                                sau elemente decorative.
+                            </div>
                         </div>
+
+                        <div class="service-item">
+                            <div class="service-title">
+                                Montaj gresie &amp; faianță
+                            </div>
+
+                            <div class="service-desc">
+                                În băi, bucătării, holuri și alte spații de trafic.
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-title">
+                                Tencuieli decorative
+                            </div>
+
+                            <div class="service-desc">
+                                Suprafețe cu texturi speciale, pentru accente vizuale.
+                            </div>
+                        </div>
+
+                        <div class="service-item">
+                            <div class="service-title">
+                                Renovări complete
+                            </div>
+
+                            <div class="service-desc">
+                                Actualizarea spațiilor interioare pentru confort
+                                și un aspect modern.
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="service-item">
-                        <div class="service-title">Renovari complete</div>
-                        <div class="service-desc">
-                            Actualizare spatii interioare pentru confort si aspect modern.
-                        </div>
-                    </div>
+                </div>
+
+
+                <!-- IMAGINE SERVICII -->
+                <div class="services-image">
+                    <img
+                        src="meta/PHOTO-2026-09-03-15-33-26.jpg"
+                        alt="Finisaje interioare realizate de CC Pro Bau"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTIUNE EXPERIENȚĂ ÎN ELVEȚIA -->
+        <section class="experience-section">
+
+            <div class="experience-marquee" aria-hidden="true">
+                <div class="experience-marquee-inner">
+                    PESTE 10 ANI EXPERIENȚĂ ÎN ELVEȚIA.
+                    PESTE 10 ANI EXPERIENȚĂ ÎN ELVEȚIA.
+                    PESTE 10 ANI EXPERIENȚĂ ÎN ELVEȚIA.
+                    PESTE 10 ANI EXPERIENȚĂ ÎN ELVEȚIA.
                 </div>
             </div>
 
-            <!-- IMAGINE DREAPTA / ROTUNDA -->
-            <div class="services-image">
-                <img src="meta/PHOTO-2026-09-03-15-33-26.jpg" alt="Finisaje Interioare CC Pro Bau">
-            </div>
-        </div>
-    </section>
+            <div class="experience-content">
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <img
+                            src="meta/PHOTO_experienta_1.jpg"
+                            alt="Proiect CC Pro Bau realizat în Elveția"
+                            loading="lazy"
+                        >
+                    </div>
 
-    <!-- SECTIUNE EXPERIENTA ELVETIA (ramane pe pagina principala) -->
-    <section class="experience-section">
-        <div class="experience-marquee">
-            <div class="experience-marquee-inner">
-                Peste 10 ani experienta in Elvetia. Peste 10 ani experienta in Elvetia.
-                Peste 10 ani experienta in Elvetia. Peste 10 ani experienta in Elvetia.
-                Peste 10 ani experienta in Elvetia. Peste 10 ani experienta in Elvetia.
-                Peste 10 ani experienta in Elvetia. Peste 10 ani experienta in Elvetia.
-            </div>
-        </div>
+                    <div class="experience-item">
+                        <img
+                            src="meta/PHOTO_experienta_2.jpg"
+                            alt="Lucrare de construcții realizată de CC Pro Bau"
+                            loading="lazy"
+                        >
+                    </div>
 
-        <div class="experience-content">
-            <div class="experience-grid">
-                <div class="experience-item">
-                    <img src="meta/PHOTO_experienta_1.jpg" alt="Proiect Elvetia 1">
-                </div>
-                <div class="experience-item">
-                    <img src="meta/PHOTO_experienta_2.jpg" alt="Proiect Elvetia 2">
-                </div>
-                <div class="experience-item">
-                    <img src="meta/PHOTO_experienta_3.jpg" alt="Proiect Elvetia 3">
-                </div>
-                <div class="experience-item">
-                    <img src="meta/PHOTO_experienta_4.jpg" alt="Proiect Elvetia 4">
+                    <div class="experience-item">
+                        <img
+                            src="meta/PHOTO_experienta_3.jpg"
+                            alt="Finisaje interioare realizate în Elveția"
+                            loading="lazy"
+                        >
+                    </div>
+
+                    <div class="experience-item">
+                        <img
+                            src="meta/PHOTO_experienta_4.jpg"
+                            alt="Proiect de renovare CC Pro Bau"
+                            loading="lazy"
+                        >
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- FOOTER / CONTACT -->
+    <!-- FOOTER + CONTACT -->
     <footer id="contact" class="site-footer">
         <div class="footer-inner">
+
             <h2 class="footer-title">
-                Contacteaza-ne cu incredere, cere detalii, si noi raspundem!
+                Contactează-ne cu încredere.
+                Cere detalii, iar noi îți răspundem!
             </h2>
 
             <div class="contact-grid">
-                <!-- STANGA: text + telefon + logo mic jos -->
-                <div class="contact-left">
-                    <p>Poti sa ne contactezi telefonic la:</p>
-                    <p class="contact-phone">
-                        <a href="tel:+40732657454">+40 732 657 454</a>
-                    </p>
-                    <p>Suntem disponibili pentru discutii despre proiecte noi, renovari si consultanta.</p>
 
+                <!-- COLOANA STÂNGA -->
+                <div class="contact-left">
+                    <p>
+                        Ne poți contacta telefonic la:
+                    </p>
+                    <p class="contact-phone">
+                        <a href="tel:+40732657454">
+                            +40 732 657 454
+                        </a>
+                    </p>
+                    <p>
+                        Suntem disponibili pentru discuții despre proiecte noi,
+                        renovări și consultanță.
+                    </p>
                     <div class="footer-logo-small">
-                        <img src="meta/logo/logo_ccprobau.png" alt="CC Pro Bau">
+                        <img
+                            src="meta/logo/logo_ccprobau.png"
+                            alt="Logo CC Pro Bau"
+                            loading="lazy"
+                        >
                     </div>
                 </div>
-
-                <!-- DREAPTA: date contact -->
+                <!-- COLOANA DREAPTA -->
                 <div class="contact-right">
-                    <p><strong>CC Pro Bau</strong></p>
-                    <p>Email: <a href="mailto:info7ccprobau@gmail.com">info7ccprobau@gmail.com</a></p>
-                    <p>Telefon: <a href="tel:+40732657454">+40 732 657 454</a></p>
-                    <p>Locatie: Elvetia &amp; Romania</p>
+                    <p>
+                        <strong>CC Pro Bau</strong>
+                    </p>
+                    <p>
+                        Email:
+                        <a href="mailto:info7ccprobau@gmail.com">
+                            info7ccprobau@gmail.com
+                        </a>
+                    </p>
+                    <p>
+                        Telefon:
+                        <a href="tel:+40732657454">
+                            +40 732 657 454
+                        </a>
+                    </p>
+                    <p>
+                        Locație: Elveția &amp; România
+                    </p>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                &copy; CC Pro Bau 2026. Toate drepturile rezervate.
+                &copy; 2026 CC Pro Bau.
+                Toate drepturile rezervate.
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript-ul existent pentru videoclipuri -->
     <script src="script.js"></script>
+
 </body>
 </html>
