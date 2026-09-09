@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     //    "meta/VIDEO-2026-09-03-15-33-55 2.mp4",
      //   "meta/loop_vid/video3.mp4",
      //   "meta/loop_vid/video4.mp4",
-        "meta/loop_vid/video5.mp4"
-        "meta/VIDEO-2026-09-03-15-33-58.mp4",
+        "meta/loop_vid/video5.mp4",
+        "meta/VIDEO-2026-09-03-15-33-58.mp4"
     ];
 
     let current = 0;
