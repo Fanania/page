@@ -309,11 +309,15 @@ body {
 
 .services-text {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     column-gap: 2.5rem;
     row-gap: 2rem;
 }
-/* STÂNGA */
+/* STANGA */
+
+.services-left-block {
+    text-align: left;
+}
 
 .services-left-block h2 {
     font-size: 1.4rem;
@@ -336,7 +340,7 @@ body {
 /* CENTRU – paragraf frumos, centrat pe coloană */
 
 .services-center-block {
-    grid-column: 1 / 3;           /* ocupă ambele coloane */
+    grid-column: 1 / 3;           /* ocupa ambele coloane */
     text-align: center;
 }
 
@@ -346,9 +350,11 @@ body {
     color: #333;
 }
 
-/* DREAPTA – listă titlu + subtext pe două rânduri */
+/* DREAPTA – lista titlu + subtext pe două rânduri */
 
 .services-right-block {
+    grid-column: 2 / 3;        /* coloana dreapta */
+    text-align: left;
     /* coloana a doua din gridul principal */
 }
 
