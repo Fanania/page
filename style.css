@@ -1,107 +1,258 @@
-/* Reset simplu */
-* {
+/* =========================================================
+   VARIABILE ȘI RESET
+   ========================================================= */
+
+:root {
+    --color-dark: #171717;
+    --color-dark-soft: #242424;
+    --color-text: #292929;
+    --color-muted: #666;
+    --color-light: #f2f2f2;
+    --color-white: #fff;
+    --color-border: #d5d5d5;
+    --color-accent: #f8d24b;
+
+    --container-width: 1120px;
+    --section-padding: clamp(4rem, 8vw, 7rem);
+    --header-height: 72px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #fff;
+    min-width: 320px;
+    overflow-x: hidden;
+    background: var(--color-light);
+    color: var(--color-text);
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    line-height: 1.5;
 }
 
-/* HEADER + MENIU */
+img,
+video {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+section,
+footer {
+    scroll-margin-top: var(--header-height);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10;
+    z-index: 100;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 2rem;
-    background: rgba(0, 0, 0, 0.35); /* transparent peste imagine */
-    backdrop-filter: blur(4px);
+
+    min-height: var(--header-height);
+    padding: 0.75rem clamp(1rem, 4vw, 3rem);
+
+    background: rgba(15, 15, 15, 0.86);
+    color: var(--color-white);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: block;
+    line-height: 0;
 }
 
 .logo img {
-    height: 40px; /* ajusteaza in functie de logo */
+    width: auto;
+    height: 42px;
+    object-fit: contain;
 }
 
-/* Meniu */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.8rem, 2.5vw, 2rem);
+}
 
 .main-nav a {
-    color: #fff;
+    position: relative;
+
+    padding: 0.5rem 0;
+
+    color: var(--color-white);
     text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 0.95rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
 }
 
-.main-nav a:hover {
-    text-decoration: underline;
+.main-nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 2px;
+
+    background: var(--color-accent);
+    content: "";
+
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
 }
 
-/* HERO */
+.main-nav a:hover,
+.main-nav a:focus-visible {
+    color: var(--color-accent);
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   FOCUS ȘI ACCESIBILITATE
+   ========================================================= */
+
+.main-nav a:focus-visible,
+.hero-button:focus-visible,
+.promo-button:focus-visible,
+.site-footer a:focus-visible,
+.gallery-grid a:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
     position: relative;
-    min-height: 100vh;
-    background-image: url("meta/PHOTO_perete_cu_bare.jpg");
-    background-size: cover;
-    background-position: center;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 2rem;
-}
 
-/* Overlay semi-transparent peste imagine pentru lizibilitate */
+    min-height: 100svh;
+    padding: 8rem 1.5rem 5rem;
+
+    background-image: url("meta/PHOTO_perete_cu_bare.jpg");
+    background-position: center;
+    background-size: cover;
+    color: var(--color-white);
+}
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.68),
+            rgba(0, 0, 0, 0.32)
+        );
 }
-
-/* Continut text + buton in centru */
 
 .hero-content {
     position: relative;
-    max-width: 720px;
-    text-align: center;
     z-index: 1;
+
+    width: min(100%, 760px);
+    text-align: center;
 }
 
 .hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+
+    color: var(--color-white);
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 650;
+    line-height: 1.08;
+    text-wrap: balance;
 }
 
 .hero-content p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+    max-width: 660px;
+    margin: 0 auto 2.25rem;
+
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(0.98rem, 1.5vw, 1.1rem);
+    line-height: 1.7;
 }
 
-/* Buton */
+
+/* =========================================================
+   BUTON HERO
+   ========================================================= */
 
 .hero-button {
     display: inline-block;
+
     padding: 0.9rem 2.2rem;
-    background: #ffffff;
-    color: #222;
-    text-decoration: none;
-    font-weight: 600;
     border-radius: 999px;
+
+    background: var(--color-white);
+    color: var(--color-dark);
+
+    text-decoration: none;
     text-transform: uppercase;
+
+    font-size: 0.8rem;
+    font-weight: 700;
     letter-spacing: 0.08em;
-    font-size: 0.85rem;
-    animation: pulse 2.2s ease-in-out infinite; /* efect de puls */
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
     transition:
         background-color 0.25s ease,
         color 0.25s ease,
@@ -109,124 +260,148 @@ body {
         box-shadow 0.25s ease;
 }
 
-@keyframes pulse {
-    0% {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-    50% {
-        transform: translateY(-1px) scale(1.02);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-    }
-    100% {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-}
-
 .hero-button:hover {
-    background: #f8d24b;
-    color: #222;
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    background: var(--color-accent);
+    color: var(--color-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
 }
 
-/* SECTIUNE PROMO SUPER PRET */
+
+/* =========================================================
+   ANIMATIE BUTON
+   ========================================================= */
+
+@keyframes pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+        transform: scale(1.02);
+    }
+}
+
+.hero-button {
+    animation: pulse 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PROMO + VIDEO
+   ========================================================= */
 
 .promo-section {
     position: relative;
-    background: #f2f2f2;
-    color: #111;
-    min-height: 80vh;
-    padding: 6rem 2rem;
+    isolation: isolate;
     overflow: hidden;
-    display: flex;
-    align-items: center; /* centreaza vertical */
-}
 
-/* Textul mare care se plimba in fundal */
+    padding: var(--section-padding) 1.5rem;
+
+    background: var(--color-light);
+    color: var(--color-dark);
+}
 
 .promo-marquee {
     position: absolute;
-    left: 0;
-    right: 0;
     top: 20%;
-    font-size: 6rem;
-    font-weight: 700;
-    color: #111;
-    white-space: nowrap;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+
+    overflow: hidden;
     pointer-events: none;
-    z-index: 0;
+    white-space: nowrap;
+
+    color: rgba(0, 0, 0, 0.08);
+    font-size: clamp(3rem, 9vw, 8rem);
+    font-weight: 800;
+    line-height: 1;
 }
 
 .promo-marquee-inner {
     display: inline-block;
-    animation: promo-scroll 25s linear infinite;
-}
+    min-width: max-content;
 
-/* Animatie scroll (dreapta -> stanga) */
+    animation: promo-scroll 28s linear infinite;
+}
 
 @keyframes promo-scroll {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-50%);
     }
 }
 
-/* Continut (video + text + buton) */
-
 .promo-content {
-    position: relative;
-    z-index: 1; /* peste textul de fundal */
-    max-width: 1000px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 2.5rem;
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(280px, 0.85fr);
     align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+
+    width: min(100%, var(--container-width));
+    margin: 0 auto;
 }
 
-/* Box alb pentru video */
-
 .promo-video-box {
-    background: #ffffff;
-    padding: 2.5rem;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: clamp(0.8rem, 2vw, 1.5rem);
+
+    background: var(--color-white);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
 }
 
 .promo-video-box video {
     width: 100%;
-    display: block;
+    min-height: 280px;
+    aspect-ratio: 16 / 10;
+
+    background: #d8d8d8;
     border-radius: 4px;
+
+    object-fit: cover;
 }
 
-/* Text + buton */
-
 .promo-text {
+    width: min(100%, 430px);
+    margin: 0 auto;
     text-align: center;
 }
 
 .promo-text p {
-    font-size: 0.95rem;
-    line-height: 1.6;
     margin-bottom: 1.8rem;
-    color: #333;
+
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 .promo-button {
     display: inline-block;
-    padding: 0.7rem 2rem;
+
+    padding: 0.75rem 2rem;
+    border: 1px solid var(--color-dark);
     border-radius: 999px;
-    border: 1px solid #111;
+
     background: transparent;
-    color: #111;
+    color: var(--color-dark);
+
     text-decoration: none;
-    font-size: 0.8rem;
     text-transform: uppercase;
+
+    font-size: 0.78rem;
+    font-weight: 600;
     letter-spacing: 0.12em;
-    font-weight: 500;
+
     transition:
         background-color 0.25s ease,
         color 0.25s ease,
@@ -235,309 +410,516 @@ body {
 }
 
 .promo-button:hover {
-    background: #111;
-    color: #fff;
-    transform: translateY(-2px);
+    background: var(--color-dark);
+    color: var(--color-white);
+    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* SECTIUNE SERVICII – fundal gri ca promo, text stanga/centru/dreapta, imagine rotunda jos */
+
+/* =========================================================
+   SERVICII
+   ========================================================= */
 
 .services-section {
-    padding: 6rem 2rem;
-    background: #f2f2f2;
+    padding: var(--section-padding) 1.5rem;
+    background: var(--color-light);
+    color: var(--color-dark);
 }
 
 .services-content {
-    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+
+    width: min(100%, var(--container-width));
     margin: 0 auto;
 }
 
-/* text: 3 blocuri */
-
 .services-text {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 3rem;
-    row-gap: 2.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4rem);
 }
 
-/* STANGA */
+.services-left-block,
+.services-center-block,
+.services-right-block {
+    min-width: 0;
+}
 
-.services-left-block {
-    text-align: left;
+.section-label {
+    display: block;
+    margin-bottom: 0.9rem;
+
+    color: #8a6d00;
+    text-transform: uppercase;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
 }
 
 .services-left-block h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    color: #111;
+    margin-bottom: 0.8rem;
+
+    color: var(--color-dark);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.1;
 }
 
 .services-tagline {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.8rem;
+
+    color: var(--color-muted);
+    line-height: 1.65;
 }
 
 .services-left-block h3 {
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
-    color: #111;
+    margin-bottom: 0.7rem;
+
+    color: var(--color-dark);
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
-/* CENTRU – paragraf pe rand separat */
-
 .services-center-block {
-    grid-column: 1 / 3;
-    text-align: center;
+    align-self: center;
 }
 
 .services-center-block p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: #333;
+    color: #4c4c4c;
+    font-size: 0.98rem;
+    line-height: 1.8;
 }
 
-/* DREAPTA – lista titlu + subtext pe doua randuri */
-
 .services-right-block {
-    grid-column: 2 / 3;
-    text-align: left;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--color-border);
+}
+
+.service-item {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #d8d8d8;
 }
 
 .service-item + .service-item {
-    margin-top: 0.8rem;
+    margin-top: 1rem;
 }
 
 .service-title {
+    margin-bottom: 0.25rem;
+
+    color: var(--color-dark);
     font-size: 0.95rem;
-    font-weight: 600;
-    color: #111;
+    font-weight: 700;
 }
 
 .service-desc {
+    color: var(--color-muted);
     font-size: 0.85rem;
-    color: #555;
+    line-height: 1.55;
 }
-
-/* imagine rotunda */
 
 .services-image {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2.5rem;
 }
 
 .services-image img {
-    width: 320px;
-    height: 320px;
+    width: min(100%, 420px);
+    aspect-ratio: 1;
+
+    border: 10px solid var(--color-white);
     border-radius: 50%;
+
     object-fit: cover;
-    display: block;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
 }
 
-/* responsive servicii */
 
-@media (max-width: 900px) {
-    .services-text {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .services-image img {
-        width: 260px;
-        height: 260px;
-    }
-}
-
-/* SECTIUNE EXPERIENTA ELVETIA */
+/* =========================================================
+   EXPERIENTA ÎN ELVETIA
+   ========================================================= */
 
 .experience-section {
-    padding: 6rem 2rem;
-    background: #f2f2f2;
-    color: #111;
     overflow: hidden;
+    padding: var(--section-padding) 1.5rem;
+
+    background: var(--color-light);
+    color: var(--color-dark);
 }
 
-/* banda text animata sus */
-
 .experience-marquee {
-    position: relative;
     width: 100%;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
     overflow: hidden;
-    margin-bottom: 3rem;
+    white-space: nowrap;
 }
 
 .experience-marquee-inner {
     display: inline-block;
-    white-space: nowrap;
-    font-size: 1rem;
+    min-width: max-content;
+
+    color: rgba(0, 0, 0, 0.72);
     text-transform: uppercase;
+
+    font-size: 0.95rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
-    color: #111;
+
     animation: experience-scroll 30s linear infinite;
 }
 
 @keyframes experience-scroll {
-    from { transform: translateX(-50%); }
-    to   { transform: translateX(0); }
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
-/* cele 4 fotografii dedesubt */
-
 .experience-content {
-    max-width: 1100px;
+    width: min(100%, var(--container-width));
     margin: 0 auto;
 }
 
 .experience-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: clamp(0.8rem, 2vw, 1.5rem);
+}
+
+.experience-item {
+    overflow: hidden;
+    border-radius: 10px;
+    background: #ddd;
 }
 
 .experience-item img {
     width: 100%;
-    height: 220px;
+    aspect-ratio: 4 / 3;
+
     object-fit: cover;
-    display: block;
-    border-radius: 12px;
+
+    transition: transform 0.4s ease;
 }
 
-/* responsive experienta */
+.experience-item:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   FOOTER / CONTACT
+   ========================================================= */
+
+.site-footer {
+    padding: var(--section-padding) 1.5rem 2rem;
+
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+.footer-inner {
+    width: min(100%, var(--container-width));
+    margin: 0 auto;
+}
+
+.footer-title {
+    max-width: 680px;
+    margin: 0 auto clamp(2rem, 5vw, 4rem);
+
+    color: var(--color-white);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    line-height: 1.25;
+    text-align: center;
+    text-wrap: balance;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(280px, 0.8fr);
+    align-items: start;
+    gap: clamp(2rem, 8vw, 7rem);
+
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-left,
+.contact-right {
+    min-width: 0;
+}
+
+.contact-left p,
+.contact-right {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.contact-phone {
+    margin: 0.5rem 0;
+}
+
+.contact-phone a {
+    color: var(--color-accent);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contact-right p {
+    margin-bottom: 0.6rem;
+}
+
+.contact-right strong {
+    color: var(--color-white);
+    font-size: 1rem;
+}
+
+.contact-right a {
+    color: var(--color-white);
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.contact-right a:hover,
+.contact-phone a:hover {
+    text-decoration: underline;
+}
+
+.footer-logo-small {
+    margin-top: 2rem;
+}
+
+.footer-logo-small img {
+    width: auto;
+    height: 34px;
+    opacity: 0.9;
+}
+
+.footer-bottom {
+    margin-top: 1.5rem;
+
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+
+/* =========================================================
+   PAGINA GALERIE
+   ========================================================= */
+
+.gallery-page {
+    min-height: 100vh;
+    padding: calc(var(--header-height) + 5rem) 1.5rem 6rem;
+
+    background: var(--color-light);
+    color: var(--color-dark);
+}
+
+.gallery-intro {
+    width: min(100%, var(--container-width));
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.gallery-intro h1 {
+    margin-bottom: 1rem;
+
+    color: var(--color-dark);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.1;
+}
+
+.gallery-intro p:last-child {
+    color: var(--color-muted);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+
+    width: min(100%, var(--container-width));
+    margin: 0 auto;
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    border-radius: 10px;
+    object-fit: cover;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   TABLETA
+   ========================================================= */
 
 @media (max-width: 900px) {
+    .services-text {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .services-left-block {
+        grid-column: 1 / 2;
+    }
+
+    .services-center-block {
+        grid-column: 2 / 3;
+        align-self: start;
+    }
+
+    .services-right-block {
+        grid-column: 1 / 3;
+
+        padding-top: 1.5rem;
+        padding-left: 0;
+
+        border-top: 1px solid var(--color-border);
+        border-left: 0;
+    }
+
     .experience-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+
+/* =========================================================
+   MOBIL
+   ========================================================= */
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 116px;
+    }
+
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.65rem;
+        padding-block: 0.8rem;
+    }
+
+    .logo img {
+        height: 36px;
+    }
+
+    .main-nav {
+        justify-content: space-between;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .main-nav a {
+        font-size: 0.68rem;
+    }
+
+    .hero {
+        padding-top: 9rem;
+    }
+
+    .promo-content {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-text {
+        width: min(100%, 560px);
+    }
+
+    .promo-marquee {
+        top: 34%;
+        font-size: 3rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .gallery-page {
+        padding-top: calc(var(--header-height) + 4rem);
+    }
+}
+
+
 @media (max-width: 600px) {
+    .services-text {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .services-left-block,
+    .services-center-block,
+    .services-right-block {
+        grid-column: 1 / -1;
+    }
+
+    .services-center-block {
+        text-align: left;
+    }
+
+    .services-right-block {
+        padding-top: 1.5rem;
+    }
+
+    .services-image img {
+        width: min(100%, 300px);
+    }
+
     .experience-grid {
         grid-template-columns: 1fr;
     }
 
     .experience-item img {
-        height: 200px;
+        aspect-ratio: 16 / 10;
     }
-}
 
-/* FOOTER CONTACT */
-
-.site-footer {
-    padding: 3rem 2rem 2rem;
-    background: rgba(0, 0, 0, 0.35);   /* similar cu header */
-    color: #fff;
-    margin-top: 0;
-}
-
-.footer-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* titlu sus */
-
-.footer-title {
-    font-size: 1rem;                   /* mai mic */
-    margin: 0 0 2.5rem 0;
-    text-align: center;
-}
-
-/* doua coloane jos */
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    gap: 3rem;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.contact-left p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: #f0f0f0;
-}
-
-/* logo mic, in coltul stanga jos */
-
-.footer-logo-small {
-    margin-top: 1.5rem;
-}
-
-.footer-logo-small img {
-    height: 28px;                      /* logo mic */
-    display: block;
-    opacity: 0.9;
-}
-
-/* DREAPTA */
-
-.contact-right {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: #f0f0f0;
-    text-align: left;
-}
-
-.contact-right p {
-    margin-bottom: 0.4rem;
-}
-
-/* telefon / linkuri */
-
-.contact-phone a {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #fff;
-    text-decoration: none;
-}
-
-.contact-phone a:hover,
-.contact-right a:hover {
-    text-decoration: underline;
-}
-
-.contact-right a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* copyright jos */
-
-.footer-bottom {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 0.75rem;
-    color: #dddddd;
-}
-
-/* responsive footer */
-
-@media (max-width: 768px) {
-    .contact-grid {
+    .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .footer-logo-small {
-        margin-top: 1rem;
     }
 }
 
-/* MEDIA pentru PROMO pe mobil */
 
-@media (max-width: 768px) {
-    .promo-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+/* =========================================================
+   REDUCEREA ANIMATIILOR
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 
-    .promo-marquee {
-        font-size: 3rem;
-        top: 40%;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
