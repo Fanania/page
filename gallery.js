@@ -121,7 +121,7 @@ async function loadGallery() {
             .filter(file => file.type === "blob")
             .map(file => file.path)
             .filter(isAllowedMedia)
-            .sort((a, b) => a.localeCompare(b));
+            .sort((a, b) => a.localeCompare(b, "ro", { sensitivity: "base" }));
 
         galleryGrid.innerHTML = "";
 
