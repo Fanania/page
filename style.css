@@ -955,3 +955,24 @@ footer {
         transition-duration: .01ms !important;
     }
 }
+
+.gallery-status {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    color: var(--muted);
+    text-align: center;
+}
+
+.gallery-video-item video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #111;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .gallery-video-item video {
+        max-height: 75svh;
+    }
+}
