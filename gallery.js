@@ -14,25 +14,22 @@ const excludedFolders = ["/loop/", "/mini_char/", "/logo/", "/background/"];
 
 function getFileExtension(path) {
     const fileName = path.split("/").pop();
-    const extension = fileName.includes(".")
-        ? fileName.slice(fileName.lastIndexOf(".")).toLowerCase()
-        : "";
+    const dotIndex = fileName.lastIndexOf(".");
 
-    return extension;
+    return dotIndex > -1
+        ? fileName.slice(dotIndex).toLowerCase()
+        : "";
 }
 
 function isAllowedMedia(path) {
     const filePath = path.toLowerCase();
     const extension = getFileExtension(filePath);
-    const isMedia = [
-        ...imageExtensions,
-        ...videoExtensions
-    ].includes(extension);
+    const supportedFiles = [...imageExtensions, ...videoExtensions];
 
     return (
         filePath.startsWith("meta/") &&
         !excludedFolders.some(folder => filePath.includes(folder)) &&
-        isMedia
+        supportedFiles.includes(extension)
     );
 }
 
@@ -75,8 +72,12 @@ function createImageItem(url, path) {
 }
 
 function openVideo(url, title) {
-    if (!videoModal || !modalVideo) return;
+    if (!videoModal || !modalVideo) {
+        console.error("Modalul video lipsește din galerie.html.");
+        return;
+    }
 
+    modalVideo.pause();
     modalVideo.src = url;
     modalVideo.setAttribute("aria-label", title);
 
@@ -84,13 +85,15 @@ function openVideo(url, title) {
     videoModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
 
-    modalVideo.play().catch(() => {});
+    modalVideo.load();
+    modalVideo.play().catch(error => {
+        console.warn("Videoclipul nu a pornit automat:", error);
+    });
 }
 
 function createVideoItem(url, path) {
     const title = getMediaTitle(path);
     const item = document.createElement("figure");
-
     item.className = "gallery-item gallery-video-item";
 
     const video = document.createElement("video");
@@ -98,7 +101,7 @@ function createVideoItem(url, path) {
     video.muted = true;
     video.playsInline = true;
     video.preload = "metadata";
-    video.setAttribute("tabindex", "0");
+    video.tabIndex = 0;
     video.setAttribute("aria-label", `Deschide ${title}`);
 
     const activateVideo = () => openVideo(url, title);
@@ -129,6 +132,8 @@ function closeVideo() {
 }
 
 function setupViewButtons() {
+    if (!galleryGrid) return;
+
     viewButtons.forEach(button => {
         button.addEventListener("click", () => {
             const oneColumn = button.dataset.view === "one";
@@ -139,17 +144,20 @@ function setupViewButtons() {
             );
 
             viewButtons.forEach(item => {
-                const active = item === button;
+                const isActive = item === button;
 
-                item.classList.toggle("is-active", active);
-                item.setAttribute("aria-pressed", String(active));
+                item.classList.toggle("is-active", isActive);
+                item.setAttribute("aria-pressed", String(isActive));
             });
         });
     });
 }
 
 function setupVideoModal() {
-    if (!videoModal || !modalVideo || !closeVideoModal) return;
+    if (!videoModal || !modalVideo || !closeVideoModal) {
+        console.warn("Elementele modalului video lipsesc din galerie.html.");
+        return;
+    }
 
     closeVideoModal.addEventListener("click", closeVideo);
 
@@ -167,6 +175,11 @@ function setupVideoModal() {
 }
 
 async function loadGallery() {
+    if (!galleryGrid) {
+        console.error("Elementul #galleryGrid lipsește din galerie.html.");
+        return;
+    }
+
     const apiUrl =
         `https://api.github.com/repos/${repositoryOwner}/${repositoryName}` +
         `/git/trees/${repositoryBranch}?recursive=1`;
@@ -175,7 +188,7 @@ async function loadGallery() {
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
-            throw new Error("Nu s-au putut încărca fișierele.");
+            throw new Error(`GitHub API error: ${response.status}`);
         }
 
         const data = await response.json();
