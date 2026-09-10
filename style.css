@@ -88,11 +88,9 @@ footer {
 .main-nav a {
     position: relative;
     padding: .5rem 0;
-
     color: var(--white);
     text-decoration: none;
     text-transform: uppercase;
-
     font-size: .78rem;
     font-weight: 600;
     letter-spacing: .08em;
@@ -104,7 +102,6 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-
     height: 2px;
     background: var(--accent);
     content: "";
@@ -129,11 +126,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-
     min-height: 100svh;
     padding: 8rem 1.5rem 5rem;
-
-  /*  background: url("meta/PHOTO_perete_cu_bare.jpg") center / cover; */
     background: url("meta/background/IMG_4026.jpeg") center / cover;
     color: var(--white);
 }
@@ -226,7 +220,7 @@ footer {
     }
 }
 
-/* PROMO + VIDEO */
+/* PROMO + VIDEO DIN PAGINA PRINCIPALĂ */
 
 .promo-section {
     position: relative;
@@ -241,10 +235,8 @@ footer {
     top: 20%;
     left: 0;
     z-index: -1;
-
     width: 100%;
     overflow: hidden;
-
     color: rgba(0, 0, 0, .08);
     font-size: clamp(3rem, 9vw, 8rem);
     font-weight: 800;
@@ -274,7 +266,6 @@ footer {
     grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
     align-items: center;
     gap: clamp(2rem, 6vw, 5rem);
-
     width: min(100%, var(--max-width));
     margin: auto;
 }
@@ -283,10 +274,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     padding: clamp(.8rem, 2vw, 1.5rem);
-
     background: var(--white);
     box-shadow: 0 18px 40px rgba(0, 0, 0, .1);
 }
@@ -296,7 +285,6 @@ footer {
     height: min(70vh, 620px);
     max-width: 100%;
     aspect-ratio: 9 / 16;
-
     background: #111;
     border-radius: 4px;
     object-fit: contain;
@@ -325,7 +313,6 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
-
     width: min(100%, var(--max-width));
     margin: auto;
 }
@@ -346,7 +333,6 @@ footer {
 .section-label {
     display: block;
     margin-bottom: .9rem;
-
     color: #8a6d00;
     font-size: .72rem;
     font-weight: 800;
@@ -433,10 +419,8 @@ footer {
 .services-image img {
     width: min(100%, 420px);
     aspect-ratio: 1;
-
     border: 10px solid var(--white);
     border-radius: 50%;
-
     object-fit: cover;
     box-shadow: 0 20px 45px rgba(0, 0, 0, .12);
 }
@@ -480,13 +464,11 @@ footer {
 .experience-marquee-inner {
     display: inline-block;
     min-width: max-content;
-
     color: rgba(0, 0, 0, .72);
     font-size: .95rem;
     font-weight: 600;
     letter-spacing: .15em;
     text-transform: uppercase;
-
     animation: experience-scroll 30s linear infinite;
 }
 
@@ -569,7 +551,6 @@ footer {
     grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
     align-items: start;
     gap: clamp(2rem, 8vw, 6rem);
-
     padding-top: 2.5rem;
     border-top: 1px solid rgba(255, 255, 255, .18);
 }
@@ -644,11 +625,9 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
     padding: clamp(1.5rem, 4vw, 2.5rem);
     border: 1px solid rgba(255, 255, 255, .18);
     border-radius: 14px;
-
     background: rgba(255, 255, 255, .06);
 }
 
@@ -676,12 +655,10 @@ footer {
     padding: .8rem .9rem;
     border: 1px solid rgba(255, 255, 255, .25);
     border-radius: 6px;
-
     background: rgba(255, 255, 255, .08);
     color: var(--white);
     font: inherit;
     outline: none;
-
     transition: border-color .2s ease, background-color .2s ease;
 }
 
@@ -703,20 +680,16 @@ footer {
 
 .quote-submit {
     align-self: flex-start;
-
     padding: .85rem 1.6rem;
     border: 0;
     border-radius: 999px;
-
     background: var(--accent);
     color: var(--dark);
-
     font: inherit;
     font-size: .78rem;
     font-weight: 700;
     letter-spacing: .08em;
     text-transform: uppercase;
-
     cursor: pointer;
     transition: .25s ease;
 }
@@ -754,6 +727,17 @@ footer {
     margin: auto;
 }
 
+.footer-title {
+    max-width: 650px;
+    margin: 0 auto 3rem;
+    color: var(--white);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+    text-wrap: balance;
+}
+
 .footer-bottom {
     padding-top: 1rem;
     color: rgba(255, 255, 255, .45);
@@ -761,14 +745,13 @@ footer {
     text-align: center;
 }
 
-/* Footerul vechi folosit de galerie */
+/* CONTACT DIN FOOTERUL GALERIEI */
 
 .site-footer .contact-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
     gap: clamp(2rem, 8vw, 6rem);
     align-items: start;
-
     padding: 2rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, .18);
 }
@@ -792,6 +775,22 @@ footer {
     text-transform: uppercase;
 }
 
+.site-footer .contact-phone {
+    margin: .2rem 0 1rem;
+}
+
+.site-footer .contact-phone a,
+.site-footer .contact-right a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.site-footer .contact-phone a:hover,
+.site-footer .contact-right a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
 .site-footer .contact-right {
     padding-left: 2rem;
     border-left: 1px solid rgba(255, 255, 255, .18);
@@ -799,18 +798,6 @@ footer {
 
 .site-footer .contact-right p {
     margin-bottom: .65rem;
-}
-
-.site-footer .contact-right a,
-.site-footer .contact-phone a {
-    color: var(--white);
-    text-decoration: none;
-}
-
-.site-footer .contact-right a:hover,
-.site-footer .contact-phone a:hover {
-    color: var(--accent);
-    text-decoration: underline;
 }
 
 .site-footer .footer-logo-small {
@@ -854,10 +841,8 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     gap: .6rem;
-
     width: min(100%, var(--max-width));
     margin: 0 auto 1.5rem;
-
     color: var(--muted);
     font-size: .85rem;
 }
@@ -866,7 +851,6 @@ footer {
     padding: .55rem .9rem;
     border: 1px solid var(--border);
     border-radius: 999px;
-
     background: var(--white);
     color: var(--dark);
     font: inherit;
@@ -886,18 +870,18 @@ footer {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
-
     width: min(100%, var(--max-width));
     margin: auto;
 }
 
-.gallery-grid--one-column {
+.gallery-grid.gallery-grid--one-column {
     grid-template-columns: 1fr;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
+    min-width: 0;
     margin: 0;
     border-radius: 10px;
     background: #ddd;
@@ -911,19 +895,25 @@ footer {
     transition: transform .4s ease, filter .4s ease;
 }
 
+.gallery-video-item video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #111;
+    object-fit: contain;
+    cursor: zoom-in;
+}
+
 .gallery-item figcaption {
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
-
     padding: 1.2rem 1rem .9rem;
     background: linear-gradient(to top, rgba(0, 0, 0, .78), transparent);
-
     color: var(--white);
     font-size: .85rem;
     font-weight: 600;
-
     transform: translateY(100%);
     transition: transform .3s ease;
 }
@@ -944,12 +934,65 @@ footer {
     text-align: center;
 }
 
-.gallery-video-item video {
+/* MODAL VIDEO - ASCUNS INIȚIAL */
+
+.video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+    background: rgba(0, 0, 0, .92);
+}
+
+.video-modal.is-visible {
+    display: flex;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.video-modal video {
     display: block;
-    width: 100%;
+    width: min(90vw, 420px);
+    height: min(85svh, 720px);
+    max-width: 100%;
     aspect-ratio: 9 / 16;
-    background: #111;
+    background: #000;
+    border-radius: 8px;
     object-fit: contain;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    width: 2.6rem;
+    height: 2.6rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .2);
+    color: var(--white);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.video-modal-close:hover {
+    background: var(--accent);
+    color: var(--dark);
 }
 
 /* TABLETĂ */
@@ -1126,36 +1169,47 @@ footer {
         width: 100%;
     }
 
-    /* Galerie: două coloane pentru imagini */
+    /*
+       GALERIE:
+       implicit = două coloane pentru imagini și videoclipuri
+    */
 
-    .gallery-grid,
-    .gallery-grid--one-column {
+    .gallery-grid:not(.gallery-grid--one-column) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: .6rem;
     }
 
-    .gallery-grid .gallery-item img {
+    .gallery-grid:not(.gallery-grid--one-column) .gallery-item,
+    .gallery-grid:not(.gallery-grid--one-column) .gallery-video-item {
+        grid-column: auto !important;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .gallery-grid:not(.gallery-grid--one-column) .gallery-item img,
+    .gallery-grid:not(.gallery-grid--one-column) .gallery-video-item video {
+        width: 100%;
+        height: auto;
         aspect-ratio: 1 / 1;
     }
 
-    .gallery-grid .gallery-item figcaption {
+    .gallery-grid:not(.gallery-grid--one-column) .gallery-item img {
+        object-fit: cover;
+    }
+
+    .gallery-grid:not(.gallery-grid--one-column) .gallery-video-item video {
+        background: #111;
+        object-fit: cover;
+        cursor: zoom-in;
+    }
+
+    .gallery-grid:not(.gallery-grid--one-column) .gallery-item figcaption {
         display: none;
     }
 
-    /* Videoclipurile ocupă un rând întreg */
-
-    .gallery-grid .gallery-video-item {
-        grid-column: 1 / -1;
-        width: min(100%, 260px);
-        justify-self: center;
-    }
-
-    .gallery-grid .gallery-video-item video {
-        aspect-ratio: 9 / 16;
-        max-height: 75svh;
-    }
-
-    /* Modul "O coloană" */
+    /*
+       Butonul „O coloană”
+    */
 
     .gallery-grid.gallery-grid--one-column {
         grid-template-columns: 1fr;
@@ -1177,10 +1231,21 @@ footer {
     .gallery-grid.gallery-grid--one-column .gallery-video-item {
         width: 100%;
         max-width: 360px;
+        justify-self: center;
+    }
+
+    .gallery-grid.gallery-grid--one-column .gallery-video-item video {
+        aspect-ratio: 9 / 16;
+        object-fit: contain;
+    }
+
+    .video-modal video {
+        width: min(90vw, 360px);
+        height: min(82svh, 620px);
     }
 }
 
-/* FOCUS + ACCESIBILITATE */
+/* ACCESIBILITATE */
 
 :focus-visible {
     outline: 3px solid var(--accent);
