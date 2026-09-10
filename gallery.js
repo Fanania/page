@@ -10,7 +10,7 @@ const repositoryBranch = "main";
 
 const imageExtensions = [".jpg", ".jpeg", ".png", ".webp", ".gif"];
 const videoExtensions = [".mp4", ".webm", ".mov", ".m4v"];
-const excludedFolders = ["/loop/", "/mini_char/", "/logo/"];
+const excludedFolders = ["/loop/", "/mini_char/", "/logo/", "/background/"];
 
 function getFileExtension(path) {
     const fileName = path.split("/").pop();
