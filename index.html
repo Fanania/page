@@ -314,65 +314,161 @@
 
     <!-- FOOTER + CONTACT -->
     <footer id="contact" class="site-footer">
-        <div class="footer-inner">
+    <div class="footer-inner">
 
-            <h2 class="footer-title">
-                Contactează-ne cu încredere.
-                Cere detalii, iar noi îți răspundem!
-            </h2>
+        <h2 class="footer-title">
+            Contactează-ne cu încredere.
+            Cere detalii, iar noi îți răspundem!
+        </h2>
 
-            <div class="contact-grid">
+        <div class="contact-grid">
 
-                <!-- COLOANA STÂNGA -->
-                <div class="contact-left">
-                    <p>
-                        Ne poți contacta telefonic la:
-                    </p>
-                    <p class="contact-phone">
-                        <a href="tel:+40732657454">
-                            +40 732 657 454
-                        </a>
-                    </p>
-                    <p>
-                        Suntem disponibili pentru discuții despre proiecte noi,
-                        renovări și consultanță.
-                    </p>
-                    <div class="footer-logo-small">
-                        <img
-                            src="meta/logo/logo_ccprobau.png"
-                            alt="Logo CC Pro Bau"
-                            loading="lazy"
+            <div class="contact-left">
+                <p>Ne poți contacta telefonic la:</p>
+
+                <p class="contact-phone">
+                    <a href="tel:+40732657454">
+                        +40 732 657 454
+                    </a>
+                </p>
+
+                <p>
+                    Suntem disponibili pentru discuții despre proiecte noi,
+                    renovări și consultanță.
+                </p>
+
+                <div class="footer-logo-small">
+                    <img
+                        src="meta/logo/logo_ccprobau.png"
+                        alt="Logo CC Pro Bau"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <h3>CC Pro Bau</h3>
+
+                <p>
+                    Email:
+                    <a href="mailto:info7ccprobau@gmail.com">
+                        info7ccprobau@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    Telefon:
+                    <a href="tel:+40732657454">
+                        +40 732 657 454
+                    </a>
+                </p>
+
+                <p>
+                    Locație: Elveția &amp; România
+                </p>
+            </div>
+
+        </div>
+
+        <!-- FORMULAR CERERE DE OFERTĂ -->
+        <div class="quote-contact">
+            <div class="quote-contact-intro">
+                <span class="section-label">Proiectul tău</span>
+
+                <h3>Cere o ofertă</h3>
+
+                <p>
+                    Completează formularul, iar noi te vom contacta
+                    pentru a discuta detaliile proiectului.
+                </p>
+            </div>
+
+            <form
+                class="quote-form"
+                action="https://formspree.io/f/ID_FORMULAR"
+                method="POST"
+            >
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="prenume">Prenume</label>
+                        <input
+                            id="prenume"
+                            name="prenume"
+                            type="text"
+                            autocomplete="given-name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="nume">Nume</label>
+                        <input
+                            id="nume"
+                            name="nume"
+                            type="text"
+                            autocomplete="family-name"
+                            required
                         >
                     </div>
                 </div>
-                <!-- COLOANA DREAPTA -->
-                <div class="contact-right">
-                    <p>
-                        <strong>CC Pro Bau</strong>
-                    </p>
-                    <p>
-                        Email:
-                        <a href="mailto:info7ccprobau@gmail.com">
-                            info7ccprobau@gmail.com
-                        </a>
-                    </p>
-                    <p>
-                        Telefon:
-                        <a href="tel:+40732657454">
-                            +40 732 657 454
-                        </a>
-                    </p>
-                    <p>
-                        Locație: Elveția &amp; România
-                    </p>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="telefon">Număr de telefon</label>
+                        <input
+                            id="telefon"
+                            name="telefon"
+                            type="tel"
+                            autocomplete="tel"
+                            required
+                        >
+                    </div>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 CC Pro Bau.
-                Toate drepturile rezervate.
-            </div>
+
+                <div class="form-field">
+                    <label for="mesaj">Mesaj</label>
+                    <textarea
+                        id="mesaj"
+                        name="mesaj"
+                        rows="5"
+                        placeholder="Descrie pe scurt proiectul tău..."
+                        required
+                    ></textarea>
+                </div>
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="Cerere nouă de ofertă - CC Pro Bau"
+                >
+
+                <button type="submit" class="quote-submit">
+                    Trimite cererea
+                </button>
+
+                <p class="form-note">
+                    Datele tale vor fi folosite doar pentru a răspunde solicitării.
+                </p>
+            </form>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            &copy; 2026 CC Pro Bau. Toate drepturile rezervate.
+        </div>
+
+    </div>
+</footer>
 
     <!-- JavaScript-ul existent pentru videoclipuri -->
     <script src="script.js"></script>
